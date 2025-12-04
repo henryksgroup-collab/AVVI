@@ -1,0 +1,14 @@
+{
+  "builds": [
+    { "src": "src/app/**", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/src/app/api/$1" }
+  ],
+  "functions": {
+    "src/app/api/generate/route.ts": {
+      "memory": 2048,
+      "maxDuration": 300
+    }
+  }
+}
